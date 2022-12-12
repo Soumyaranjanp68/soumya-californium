@@ -75,18 +75,18 @@ router.get("/shoes", function(req, res){
 })
 
 // 1-->an API for GET /movies that returns a list of movies.
-router.get("/movies", function(req, res){
-    console.log("movies are printed")
-    res.send(['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins' , '3 Idiots'])
-})
-// 2-->an API GET /movies/:indexNumber ,, it should return the movie in your array at index number element
-// router.get("/movies/:indexNumber", function(req, res){
-//     let moviesArr=['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins' , '3 Idiots']
-//     // if(req.params.indexNumber < moviesArr.length){
-//         console.log("successfully printed the index movie")
-//         // res.send(moviesArr[req.params.indexNumber])
+// router.get("/movies", function(req, res){
+//     console.log("movies are printed")
+//     res.send(['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins' , '3 Idiots'])
+// })
+// // 2-->an API GET /movies/:indexNumber ,, it should return the movie in your array at index number element
+// // router.get("/movies/:indexNumber", function(req, res){
+// //     let moviesArr=['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins' , '3 Idiots']
+// //     // if(req.params.indexNumber < moviesArr.length){
+// //         console.log("successfully printed the index movie")
+// //         // res.send(moviesArr[req.params.indexNumber])
     
-// });
+// // });
 
     // 3-->
     router.get("/movies/:indexNumber", function(req, res){
@@ -100,54 +100,79 @@ router.get("/movies", function(req, res){
         res.send(moviesArr[req.params.indexNumber])};
     });
 
-    // 4-->
+//     // 4-->
 
-    router.get("/films", function(req, res){
-        let filmsArr=[ {
-            "id": 1,
-            "name": "The Shining"
-           }, {
-            "id": 2,
-            "name": "Incendies"
-           }, {
-            "id": 3,
-            "name": "Rang de Basanti"
-           }, {
-            "id": 4,
-            "name": "Finding Nemo"
-           }]
-         console.log("film is in the form of array") 
-         res.send(filmsArr); 
+//     router.get("/films", function(req, res){
+//         let filmsArr=[ {
+//             "id": 1,
+//             "name": "The Shining"
+//            }, {
+//             "id": 2,
+//             "name": "Incendies"
+//            }, {
+//             "id": 3,
+//             "name": "Rang de Basanti"
+//            }, {
+//             "id": 4,
+//             "name": "Finding Nemo"
+//            }]
+//          console.log("film is in the form of array") 
+//          res.send(filmsArr); 
            
-    })
+//     })
 
-    // 5-->
-    router.get("/films/:id", function(req, res){
-        let filmsArr1=[ {
-            "id": 1,
-            "name": "The Shining"
-           }, {
-            "id": 2,
-            "name": "Incendies"
-           }, {
-            "id": 3,
-            "name": "Rang de Basanti"
-           }, {
-            "id": 4,
-            "name": "Finding Nemo"
-           }]
-          for(let i=0; i<filmsArr1.length ; i++){
-            if(filmsArr1[i].id == req.params.id){
-                res.send(filmsArr1[i])
-                break;
-            }
-            if(filmsArr1[i].id>filmsArr1.length-1){
-                res.send("No films exist with this id")
-                break;
-            }
-           }
+//     // 5-->
+//     router.get("/films/:id", function(req, res){
+//         let filmsArr1=[ {
+//             "id": 1,
+//             "name": "The Shining"
+//            }, {
+//             "id": 2,
+//             "name": "Incendies"
+//            }, {
+//             "id": 3,
+//             "name": "Rang de Basanti"
+//            }, {
+//             "id": 4,
+//             "name": "Finding Nemo"
+//            }]
+//           for(let i=0; i<filmsArr1.length ; i++){
+//             if(filmsArr1[i].id == req.params.id){
+//                 res.send(filmsArr1[i])
+//                 break;
+//             }
+//             if(filmsArr1[i].id>filmsArr1.length-1){
+//                 res.send("No films exist with this id")
+//                 break;
+//             }
+//            }
+//    })
+
+   router.get("/sol1", function(req, res){
+
+    let arr=[1,2,3,4,5,7,8,9]
+    let sum=arr.length+1
+    let total= sum*(sum + 1)/2
+    let result=0
+    for(let i=0; i< arr.length ; i++){
+        result += arr[i];
+    }
+    let missingNumber=(total - result)
+    res.send({data:missingNumber})
    })
 
+
+  router.get("/sol2", function(req, res){
+    let arr1=[33,34,35,37,38]
+    let sum1= arr1.length+1
+    let result1= sum1* (arr1[0] + arr1[arr1.length-1])/2
+    let a=0
+    for (let i=0; i< arr1.length; i++){
+        a += arr1[i]
+    }
+    let missingNumber=result1-a;
+    res.send({missingNumber})
+  })
     
      
 
