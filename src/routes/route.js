@@ -32,6 +32,36 @@ let players =
        },
    ]
 
+   let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+ 
+
+
 
 
 router.get('/students/:name', function(req, res) {
@@ -115,6 +145,22 @@ router.post('/players', function (req, res) {
         players.push(newplayer)
         res.send({players})
    })
+
+    
+
+ 
+router.post("/persons", function(req, res){
+    let votingAge = req.query.votingAge
+    let finalArr = []
+    for(let i=0; i< persons.length ; i++){
+        if(persons[i].age> votingAge){
+            persons[i]["votingStatus"]=true
+            finalArr.push(persons[i])
+        }
+        
+    } res.send({"data":finalArr,"status":true})
+    });
+
 
 
 
