@@ -16,12 +16,7 @@ mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzot
 
 app.use (
     function (req, res, next) {
-        const currentDate=new Date()
-        const timestamps= currentDate. getTime()
-
-        console.log(req.timestamps)
-        console.log (req.ip);
-        console.log(req.url)
+        console.log(new Date(),req.ip,req.url)
         next();
   }
   );
