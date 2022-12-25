@@ -1,46 +1,37 @@
+const userModel=require("../models/userModel")
+const productModel=require("../models/productModel")
 
-const mid1= function ( req, res, next) {
-    let header=req.header.isFreeAppUser
-    if(!isFreeAppUser==true)
-    console.log("error:missing header")
+const isFreeAppUserValidation=function(req, res, next){
+    let header = req.headers;
+    
+    if(header.isfreeappuser){
+        req.isFreeAppUser=header.isfreeappuser
+
+
     next()
+}else{
+    res.send({msg:"please give app user a header"})
+}
+}
+ 
+
+const userValidation=async function(req,res,next){
+    const data=await userModel.findById(req.body.userId)
+    if(data) next()
+    else
+     return res.send({msg:"first create user"})
 }
 
-// const mid2= function ( req, res, next) {
-//     console.log("Hi I am a middleware named Mid2")
-//     next()
-// }
+const productValidation=async function(req,res,next){
+    const data=await productModel.findById(req.body.productId)
+    if(data)
+    next()
+    else
+     return res.send({msg:"with this id product is not available in database"})
+}
 
-// const mid3= function ( req, res, next) {
-//     console.log("Hi I am a middleware named Mid3")
-//     next()
-// }
 
-// const mid4= function ( req, res, next) {
-//     console.log("Hi I am a middleware named Mid4")
-//     next()
-// }
 
-// const abc = function(req, res, next) {
-//     //get the users IP
-//     //save it in db
-//     // console log
-//     next()
-// }
-
-// const def = function(req, res, next) {
-//    //get the users IP
-//    //save it in db
-//    // console log
-//    next()
-// }
-
-// const xyz = function(req, res, next) {
-//    //get the users IP
-//    //save it in db
-//    // console log
-//    next()
-// }
-
-module.exports.mid1= mid1
-
+module.exports.isFreeAppUserValidation=isFreeAppUserValidation
+module.exports.userValidation=userValidation
+module.exports.productValidation=productValidation

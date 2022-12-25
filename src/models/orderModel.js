@@ -13,8 +13,8 @@ const orderSchema=new mongoose.Schema({
      },
      amount:Number,
      isFreeAppUser: Boolean,
-     date: Date
-// orderSchema.find().populate("userid").populate("productId").select({userId.name:1,productId.name:1})
+     date: String
+
 
 },{timestamps:true}
 )

@@ -11,8 +11,8 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
-router.post("/createBook", commonMW.abc, BookController.createBook  )
-router.post("/createUser", commonMW.mid1, UserController.createUser)
-router.post("/createOrder",orderController.createOrder)
+
+router.post("/createUser", commonMW.isFreeAppUserValidation, UserController.createUser)
+router.post("/createOrder",commonMW.isFreeAppUserValidation,commonMW.userValidation,commonMW.productValidation,orderController.createOrder)
 router.post("/createProduct",productController.createProduct)
 module.exports = router;
