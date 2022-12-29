@@ -1,7 +1,21 @@
 const jwt= require("jsonwebtoken")
 const userModel= require("../models/userModel")
 
-const tokenValidation = async function(req,res,next){
+
+const userValidation=async function(req,res,next){
+    try{
+        let data= req.params
+        let user=await userModel.findById(data.userId)
+        if(!user){
+            return res.status(404).send({msg:"user not found"})
+        }
+        next()
+    }catch(error){
+        res.status(500).send({status:false, error:error.message})
+    }
+}
+
+const tokenValidation = function (req,res,next){
     try{
     let data = req.headers["x-auth-token"]
     if(!data){
@@ -31,8 +45,9 @@ const authorise = function(req, res, next) {
     }
     next()
 }catch(error){
-    res.status(500).send({msg:"errpr",error:error.message})
+    res.status(500).send({msg:"error",error:error.message})
 }}
 
 module.exports.tokenValidation=tokenValidation
 module.exports.authorise=authorise
+module.exports.userValidation=userValidation

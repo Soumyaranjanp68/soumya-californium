@@ -20,7 +20,8 @@ const loginUser = async function (req, res) {
   try{
   let userName = req.body.emailId;
   let password = req.body.password;
-  if(Object.keys(userName && password).length !=0){
+  let data=req.body
+  if(Object.keys(data).length !=0){
 
   let user = await userModel.findOne({ emailId: userName, password: password });
   if (!user)
