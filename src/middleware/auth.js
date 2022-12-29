@@ -24,9 +24,7 @@ const tokenAuthentication = function (req, res, next) {
     }
 
     let decoded = jwt.verify(token, "functionup-californium-secret-key");
-    if (!decoded) {
-      return res.status(401).send({ status: false, msg: "Invalid token id." });
-    }
+
     next();
   } catch (err) {
     res.status(500).send({ msg: "Error", Error: err.message });
@@ -41,9 +39,7 @@ const tokenAuthorization = function (req, res, next) {
     }
 
     let decoded = jwt.verify(token, "functionup-californium-secret-key");
-    if (!decoded) {
-      return res.status(401).send({ status: false, msg: "Invalid token id." });
-    }
+    
     if (decoded.userId != req.params.userId) {
       return res.status(403).send({ status: false, msg: "The loggdin user is not authorized." });
     }
