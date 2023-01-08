@@ -1,31 +1,28 @@
 const mongoose = require('mongoose')
-/*
-2.  grnLineItem
- {id,createdAt, updatedAt,deleted,  productName, quantity, stockPrice }
-*/
-const grnLineItemSchema = new mongoose.Schema( {
 
-    productName:{
-        type:String,
+const grnLineItemSchema = new mongoose.Schema({
+
+    productName: {
+        type: String,
         required: true
     },
-    
+
     quantity: {
-    type:Number,
-    required:true
+        type: Number,
+        required: true
     },
 
-    stockPrice:{
-        type:Number,
-        required:true
+    stockPrice: {
+        type: Number,
+        required: true
     },
 
-    updatedAt:Date
+    updatedAt: Date
 
-},  
+},
 
-{
-    timestams:true
+    {
+        timestams: true
 
-})
-module.exports= mongoose.model('grnLineItem', grnLineItemSchema)
+    })
+module.exports = mongoose.model('grnLineItem', grnLineItemSchema)
