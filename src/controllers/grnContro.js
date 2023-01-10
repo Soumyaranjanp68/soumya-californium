@@ -2,7 +2,6 @@ const grnModel = require('../models/grn')
 const grnItem = require('../models/item')
 
 
-//============================  post API ==========================================
 
 const createGrn = async function (req, res) {
     try {
@@ -17,7 +16,6 @@ const createGrn = async function (req, res) {
 }
 
 
-//============================  put API ==========================================
 
 
 const updateItem = async function (req, res) {
@@ -35,7 +33,6 @@ const updateItem = async function (req, res) {
     }
 }
 
-// ======================================= get API ===================================
 
 const getGrn = async function (req, res) {
     try {
@@ -49,7 +46,7 @@ const getGrn = async function (req, res) {
     }
 }
 
-//============================  delete API ==========================================
+
 
 
 const deleteGrn = async function (req, res) {

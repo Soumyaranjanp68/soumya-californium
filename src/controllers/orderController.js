@@ -2,7 +2,7 @@ const orderModel = require('../models/order')
 const ItemModel = require('../models/item')
 
 
-//============================  post API ==========================================
+
 
 const orderCreate = async function (req, res) {
     try {
@@ -17,7 +17,6 @@ const orderCreate = async function (req, res) {
 }
 
 
-//============================  put API ==========================================
 
 const orderUpdate = async function (req, res) {
     try {
@@ -37,7 +36,7 @@ const orderUpdate = async function (req, res) {
 }
 
 
-//============================  get API ==========================================
+
 
 const getOrder = async function (req, res) {
     try {
@@ -51,7 +50,6 @@ const getOrder = async function (req, res) {
     }
 }
 
-//====================================== delete API ==================================================
 
 const deleteOrder = async function (req, res) {
     try {

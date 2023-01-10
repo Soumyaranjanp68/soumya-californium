@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
-
-// const mixed = mongoose.Schema.Type.Mixed
-
 const objectId = mongoose.Schema.Type.objectId
+
+
 const orderSchema = new mongoose.Schema({
 
     invoiceNumber: {

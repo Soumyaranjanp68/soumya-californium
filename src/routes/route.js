@@ -4,13 +4,13 @@ const orderController =require('../controllers/orderController')
 const grnController = require('../controllers/grnContro')
 const orderController =require('../controllers/orderController')
 
-//=========================== Grn router ==========================================================
+//grn
 router.post("/createGrn", grnController.createGrn )
 router.get("/getGrn/:grnId" , grnController.getGrn)
 router.put("/updateItem/:grnId" , grnController.updateItem )
 router.delete("/deleteGrn/:grnId" , grnController.deleteGrn)
 
-// ===================================== Order router ================================================
+//order
 router.post("/orderCreate", orderController.orderCreate )
 router.get("/getOrder/:orderId" , orderController.getOrder)
 router.put("/orderUpdate/:orderId" , orderController.orderUpdate )
